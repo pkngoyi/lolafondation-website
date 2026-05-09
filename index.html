@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fondation LoLa — Mockup 3: Bold & Cultural</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e3;
+    --cream-deep: #ebe2cd;
+    --indigo: #1d2b6b;
+    --indigo-deep: #0f1846;
+    --sun: #f4b942;
+    --sun-deep: #e09e1f;
+    --clay: #c84c2a;
+    --leaf: #1f5f3f;
+    --ink: #181410;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  .display { font-family: 'Bricolage Grotesque', sans-serif; font-variation-settings: "opsz" 48; }
+  .container { max-width: 1340px; margin: 0 auto; padding: 0 28px; position: relative; }
+
+  /* TICKER BAR */
+  .ticker {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 10px 0;
+    font-size: 12px;
+    overflow: hidden;
+    border-bottom: 2px solid var(--sun);
+  }
+  .ticker-track {
+    display: flex;
+    gap: 40px;
+    animation: scrollT 30s linear infinite;
+    white-space: nowrap;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .ticker-track span::before {
+    content: '★';
+    color: var(--sun);
+    margin-right: 40px;
+  }
+  @keyframes scrollT {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* NAV */
+  nav {
+    background: var(--cream);
+    border-bottom: 2px solid var(--ink);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+  }
+  .logo-mark {
+    width: 44px; height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-mark img, .logo-mark svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .footer-brand-logo {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .nav-links a:hover { border-color: var(--clay); color: var(--clay); }
+  .nav-actions { display: flex; gap: 12px; align-items: center; }
+  .lang-toggle {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+  }
+  .lang-toggle .active { background: var(--ink); color: var(--cream); padding: 4px 8px; border-radius: 4px; }
+  .lang-toggle a { color: inherit; text-decoration: none; transition: color 0.2s; }
+  .lang-toggle a:hover { color: var(--clay); }
+  .btn-donate {
+    background: var(--clay);
+    color: var(--cream);
+    padding: 12px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-donate:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+  .btn-donate:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+
+  /* HERO */
+  .hero {
+    padding: 60px 0 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: end;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .hero-tag .dot { width: 8px; height: 8px; background: var(--sun); border-radius: 50%; }
+  h1.headline {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: "opsz" 40;
+    font-size: clamp(40px, 6vw, 84px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  h1.headline .accent { color: var(--clay); display: inline-block; transform: rotate(-2deg); }
+  h1.headline .underline {
+    background: linear-gradient(180deg, transparent 60%, var(--sun) 60%, var(--sun) 90%, transparent 90%);
+    padding: 0 4px;
+  }
+  .hero-lead {
+    font-size: 19px;
+    color: var(--ink);
+    line-height: 1.55;
+    max-width: 520px;
+    margin-bottom: 36px;
+    font-weight: 500;
+  }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-big {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 18px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    border: 2px solid var(--ink);
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .btn-big:hover { background: var(--clay); border-color: var(--clay); }
+  .btn-outline {
+    background: transparent;
+    color: var(--ink);
+    padding: 18px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    border: 2px solid var(--ink);
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .btn-outline:hover { background: var(--sun); }
+
+  /* HERO VISUAL */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 4/5;
+    max-width: 460px;
+    margin-left: auto;
+  }
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--ink);
+    border-radius: 20px;
+    background:
+      linear-gradient(160deg, rgba(244, 185, 66, 0.28) 0%, rgba(29, 43, 107, 0.6) 100%),
+      url('images/family-compound-mango-tree.jpg') center/cover;
+    box-shadow: 12px 12px 0 var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-badge {
+    position: absolute;
+    top: -28px;
+    left: -28px;
+    background: var(--sun);
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transform: rotate(-12deg);
+    color: var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    z-index: 2;
+    padding: 12px;
+  }
+  .hero-floating-card {
+    position: absolute;
+    bottom: -20px;
+    right: -32px;
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 18px;
+    width: 220px;
+    box-shadow: 6px 6px 0 var(--ink);
+    z-index: 2;
+  }
+  .hero-floating-card .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .hero-floating-card .num {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 4px;
+  }
+  .hero-floating-card .desc {
+    font-size: 12px;
+    color: var(--ink);
+  }
+
+  /* PATTERN STRIP */
+  .pattern-strip {
+    height: 40px;
+    background-image:
+      linear-gradient(45deg, var(--ink) 25%, transparent 25%),
+      linear-gradient(-45deg, var(--ink) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--ink) 75%),
+      linear-gradient(-45deg, transparent 75%, var(--ink) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    background-color: var(--sun);
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+  }
+
+  /* MISSION SECTION */
+  .mission {
+    padding: 100px 0;
+    background: var(--indigo);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .mission::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: var(--sun);
+    border-radius: 50%;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+  .mission::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: var(--clay);
+    border-radius: 50%;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sun);
+    margin-bottom: 24px;
+    padding: 4px 12px;
+    border: 1px solid var(--sun);
+    border-radius: 999px;
+  }
+  .mission h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+  }
+  .mission h2 .yellow { color: var(--sun); }
+  .mission-body p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(245, 240, 227, 0.85);
+    margin-bottom: 20px;
+  }
+  .mission-body strong { color: var(--cream); font-weight: 600; }
+  .signature {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(245, 240, 227, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .signature-mark {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sun), var(--clay));
+    border: 2px solid var(--cream);
+  }
+  .signature-text { font-size: 13px; color: rgba(245, 240, 227, 0.7); }
+  .signature-text strong { display: block; color: var(--cream); font-size: 14px; margin-bottom: 2px; }
+
+  /* IMPACT NUMBERS */
+  .impact {
+    padding: 100px 0;
+    background: var(--cream);
+    border-bottom: 2px solid var(--ink);
+  }
+  .impact-header {
+    margin-bottom: 64px;
+    max-width: 800px;
+  }
+  .impact h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .impact h2 .clay { color: var(--clay); }
+  .impact-lead { font-size: 18px; color: var(--ink); max-width: 560px; }
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 2px solid var(--ink);
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .stat-cell {
+    background: var(--cream);
+    padding: 40px 32px;
+    border-right: 2px solid var(--ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 240px;
+    transition: background 0.25s;
+    cursor: default;
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-cell:hover { background: var(--sun); }
+  .stat-cell:nth-child(2):hover { background: var(--clay); color: var(--cream); }
+  .stat-cell:nth-child(3):hover { background: var(--leaf); color: var(--cream); }
+  .stat-cell:nth-child(4):hover { background: var(--indigo); color: var(--cream); }
+  .stat-num {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 84px;
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    color: var(--ink);
+    transition: color 0.25s;
+  }
+  .stat-cell:hover .stat-num { color: inherit; }
+  .stat-label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-top: 16px;
+  }
+  .stat-label small { display: block; font-weight: 400; opacity: 0.7; margin-top: 4px; font-size: 12px; }
+
+  /* PROJECTS */
+  .projects {
+    padding: 120px 0;
+    background: var(--cream-deep);
+    border-bottom: 2px solid var(--ink);
+    position: relative;
+  }
+  .projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .projects h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    color: var(--ink);
+    max-width: 800px;
+  }
+  .projects h2 .clay { color: var(--clay); }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .project {
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    transition: all 0.2s;
+    overflow: hidden;
+  }
+  .project:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+  .project:nth-child(1) { background: var(--cream); }
+  .project:nth-child(2) { background: var(--sun); }
+  .project:nth-child(3) { background: var(--leaf); color: var(--cream); }
+  .project:nth-child(3) .project-status { color: var(--cream); border-color: var(--cream); }
+  .project:nth-child(4) { background: var(--clay); color: var(--cream); }
+  .project:nth-child(4) .project-status { color: var(--cream); border-color: var(--cream); }
+  .project-num {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  .project-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+  .project-desc {
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 28px;
+    opacity: 0.92;
+  }
+  .project-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+  .project-status .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  /* QUOTE */
+  .quote-section {
+    padding: 120px 0;
+    background: var(--ink);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .quote-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .quote-mark-big {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 280px;
+    line-height: 0.7;
+    color: var(--sun);
+    font-weight: 800;
+    margin-bottom: 24px;
+  }
+  .quote-text {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(28px, 3vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    font-weight: 500;
+    margin-bottom: 32px;
+  }
+  .quote-text em { color: var(--sun); font-style: normal; font-weight: 700; }
+  .quote-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(245, 240, 227, 0.2);
+  }
+  .quote-author .avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--clay), var(--sun));
+    border: 2px solid var(--cream);
+  }
+  .quote-author .name { font-weight: 700; font-size: 16px; color: var(--cream); }
+  .quote-author .role { font-size: 13px; color: rgba(245, 240, 227, 0.6); }
+  .quote-photo {
+    aspect-ratio: 1;
+    border: 3px solid var(--cream);
+    border-radius: 24px;
+    background:
+      linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4) 100%),
+      url('images/foundation-digging.jpg') center/cover;
+    position: relative;
+    box-shadow: 12px 12px 0 var(--clay);
+  }
+
+  /* JOIN / CTA */
+  .join {
+    padding: 140px 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(244, 185, 66, 0.3), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(200, 76, 42, 0.25), transparent 40%),
+      var(--cream);
+    text-align: center;
+    border-bottom: 2px solid var(--ink);
+  }
+  .join-eyebrow {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--sun);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .join h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(56px, 8vw, 124px);
+    line-height: 0.88;
+    letter-spacing: -0.05em;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 32px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .join h2 .clay { color: var(--clay); }
+  .join h2 .underline {
+    background: linear-gradient(180deg, transparent 65%, var(--sun) 65%, var(--sun) 92%, transparent 92%);
+    padding: 0 8px;
+  }
+  .join-lead {
+    font-size: 19px;
+    color: var(--ink);
+    max-width: 600px;
+    margin: 0 auto 48px;
+    font-weight: 500;
+  }
+  .donate-tiers {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .tier {
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 24px 28px;
+    border-radius: 16px;
+    text-align: left;
+    min-width: 200px;
+    cursor: pointer;
+    transition: all 0.15s;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .tier:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+  .tier.featured { background: var(--sun); }
+  .tier .amount {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .tier .impact-text { font-size: 13px; color: var(--ink); line-height: 1.4; font-weight: 500; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 80px 0 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  footer::before {
+    content: 'LoLa';
+    position: absolute;
+    bottom: -80px;
+    right: -40px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 320px;
+    font-weight: 800;
+    color: rgba(244, 185, 66, 0.06);
+    letter-spacing: -0.06em;
+    pointer-events: none;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 56px;
+    position: relative;
+    z-index: 2;
+  }
+  footer h4 {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sun);
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  footer ul { list-style: none; }
+  footer li { margin-bottom: 10px; }
+  footer a {
+    color: rgba(245, 240, 227, 0.75);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--sun); }
+  .footer-brand {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+  .footer-tagline { font-size: 15px; color: rgba(245, 240, 227, 0.7); max-width: 320px; line-height: 1.55; margin-bottom: 24px; }
+  .charity-no {
+    background: rgba(244, 185, 66, 0.12);
+    border: 1px solid rgba(244, 185, 66, 0.3);
+    padding: 12px 16px;
+    border-radius: 12px;
+    display: inline-block;
+    font-size: 12px;
+    color: var(--sun);
+    line-height: 1.4;
+  }
+  .charity-no strong { color: var(--cream); display: block; margin-bottom: 2px; font-size: 13px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(245, 240, 227, 0.15);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(245, 240, 227, 0.5);
+    flex-wrap: wrap;
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* BUILD PROGRESS */
+  .build {
+    padding: 100px 0;
+    background: var(--cream);
+    border-bottom: 2px solid var(--ink);
+  }
+  .build-header {
+    margin-bottom: 56px;
+    max-width: 800px;
+  }
+  .build h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .build h2 .clay { color: var(--clay); }
+  .build-lead { font-size: 18px; color: var(--ink); max-width: 640px; }
+
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .phase {
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 24px 22px;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .phase.done { background: var(--leaf); color: var(--cream); }
+  .phase.active { background: var(--sun); }
+  .phase.pending { background: var(--cream); }
+  .phase:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+  .phase-num {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+  .phase-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    line-height: 1.1;
+  }
+  .phase-status-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border: 1.5px solid currentColor;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .phase p { font-size: 13px; line-height: 1.5; opacity: 0.92; }
+
+  .honest-note {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 28px 32px;
+    border-radius: 16px;
+    font-size: 16px;
+    line-height: 1.65;
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--clay);
+    max-width: 900px;
+  }
+  .honest-note strong {
+    color: var(--sun);
+    display: block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .honest-note em { color: var(--sun); font-style: normal; font-weight: 600; }
+  .honest-note a { color: var(--sun); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* PARTNERS */
+  .partners {
+    padding: 110px 0;
+    background: var(--cream-deep);
+    border-bottom: 2px solid var(--ink);
+  }
+  .partners-header { margin-bottom: 56px; max-width: 800px; }
+  .partners h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .partners h2 .clay { color: var(--clay); }
+  .partner-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 18px;
+  }
+  .partner-card {
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .partner-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+  .partner-card.big { background: var(--indigo); color: var(--cream); box-shadow: 4px 4px 0 var(--sun); }
+  .partner-card.big:hover { box-shadow: 6px 6px 0 var(--sun); }
+  .partner-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1.5px solid currentColor;
+    border-radius: 999px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
+  .partner-card.big .partner-tag { color: var(--sun); border-color: var(--sun); }
+  .partner-card h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+  .partner-role {
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.7;
+    margin-bottom: 16px;
+  }
+  .partner-card.big .partner-role { color: var(--sun); opacity: 1; }
+  .partner-card > p:last-child { font-size: 14px; line-height: 1.55; opacity: 0.9; }
+
+  /* PLEDGE */
+  .pledge {
+    background: var(--indigo);
+    color: var(--cream);
+    padding: 90px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .pledge::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: var(--sun);
+    border-radius: 50%;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+  .pledge::after {
+    content: '';
+    position: absolute;
+    bottom: -120px;
+    right: -120px;
+    width: 380px;
+    height: 380px;
+    background: var(--clay);
+    border-radius: 50%;
+    opacity: 0.12;
+    pointer-events: none;
+  }
+  .pledge-card {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .pledge-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sun);
+    margin-bottom: 18px;
+    border: 1px solid var(--sun);
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+  .pledge h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .pledge h2 .yellow {
+    background: linear-gradient(180deg, transparent 60%, var(--sun) 60%, var(--sun) 90%, transparent 90%);
+    color: var(--cream);
+    padding: 0 6px;
+  }
+  .pledge p { color: rgba(245, 240, 227, 0.8); font-size: 16px; line-height: 1.6; }
+  .pledge-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .pledge-form input,
+  .pledge-form select {
+    background: rgba(245, 240, 227, 0.08);
+    border: 1.5px solid rgba(245, 240, 227, 0.25);
+    padding: 16px 20px;
+    color: var(--cream);
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    border-radius: 12px;
+    transition: border-color 0.2s;
+  }
+  .pledge-form input:focus,
+  .pledge-form select:focus { border-color: var(--sun); }
+  .pledge-form input::placeholder { color: rgba(245, 240, 227, 0.45); }
+  .pledge-form select { cursor: pointer; }
+  .pledge-form select option { background: var(--indigo); color: var(--cream); }
+  .pledge-form button {
+    background: var(--sun);
+    color: var(--ink);
+    border: 2px solid var(--sun);
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .pledge-form button:hover { background: var(--cream); border-color: var(--cream); }
+
+  @media (max-width: 1000px) {
+    .hero-grid, .mission-grid, .quote-grid { grid-template-columns: 1fr; gap: 56px; }
+    .impact-grid { grid-template-columns: repeat(2, 1fr); }
+    .phase-grid { grid-template-columns: 1fr; }
+    .partner-grid { grid-template-columns: 1fr; }
+    .pledge-card { grid-template-columns: 1fr; gap: 40px; }
+    .stat-cell { border-right: none; border-bottom: 2px solid var(--ink); }
+    .stat-cell:nth-child(2n) { border-right: none; }
+    .stat-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .stat-cell:nth-last-child(-n+2):not(:last-child) { border-bottom: 2px solid var(--ink); }
+    .project-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .stat-num { font-size: 60px; }
+    .hero-floating-card { display: none; }
+    .hero-badge { width: 100px; height: 100px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Building Phase 2 of 5 in Lemba, Kinshasa</span>
+    <span>$80K to open the doors · Target 2027</span>
+    <span>Tax receipts issued instantly via CanadaHelps</span>
+    <span>Backed by NBA Champion DJ Mbenga</span>
+    <span>Building Phase 2 of 5 in Lemba, Kinshasa</span>
+    <span>$80K to open the doors · Target 2027</span>
+    <span>Tax receipts issued instantly via CanadaHelps</span>
+    <span>Backed by NBA Champion DJ Mbenga</span>
+  </div>
+</div>
+
+<nav>
+  <div class="container nav-row">
+    <div class="logo">
+      <div class="logo-mark"><img src="images/lola-icon.svg" alt="Fondation LoLa logo"></div>
+      Fondation LoLa
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#progress">Progress</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#voices">Voices</a></li>
+      <li><a href="#join">Donate</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-toggle"><span class="active">EN</span> · <a href="fr/index.html">FR</a></div>
+      <a href="https://www.canadahelps.org/en/charities/fondation-lola/" target="_blank" rel="noopener" class="btn-donate">
+        Donate
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag"><span class="dot"></span>Lemba · Kinshasa · DRC</div>
+        <h1 class="headline">
+          Literacy is<br>
+          <span class="underline">infrastructure.</span><br>
+          So we're <span class="accent">building it.</span>
+        </h1>
+        <p class="hero-lead">A family-founded charity building the first community library in Lemba, Kinshasa — two kilometres from the University of Kinshasa. Construction is underway, currently paused while we save for the next phase.</p>
+        <div class="hero-cta">
+          <a href="https://www.canadahelps.org/en/charities/fondation-lola/" target="_blank" rel="noopener" class="btn-big">
+            Help us finish
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#pledge" class="btn-outline">Give once we open</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-badge">Since<br>2024</div>
+        <div class="hero-photo"></div>
+        <div class="hero-floating-card">
+          <div class="label">Where we are</div>
+          <div class="num">$9K</div>
+          <div class="desc">raised · $80K to go</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pattern-strip"></div>
+
+<section class="mission" id="about">
+  <div class="container">
+    <div class="mission-grid">
+      <div>
+        <div class="section-eyebrow">Our story</div>
+        <h2>It started with a <span class="yellow">house in Lemba.</span></h2>
+      </div>
+      <div class="mission-body">
+        <p>Fondation LoLa was born from a family conversation. <strong>One of our founders grew up in Edmonton, borrowing books by the armful.</strong> Another grew up in Lemba, in a Kinshasa neighbourhood where the public library most children needed simply did not exist.</p>
+        <p>So the family did the obvious thing. They turned the childhood home into a library — <strong>two kilometres from the University of Kinshasa</strong>, walking distance for students who today have nowhere quiet to study.</p>
+        <p>Today, Fondation LoLa is run by relatives — teachers, a medical doctor, a business executive — who pooled what they had and learned the rest. We are deliberately small. We meet over Sunday coffee. <strong>Every donor dollar goes to construction and books.</strong> The family covers operations.</p>
+        <div class="signature">
+          <div class="signature-mark"></div>
+          <div class="signature-text">
+            <strong>The founders</strong>
+            Educators, medical, business · Canada & DRC
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="impact" id="impact">
+  <div class="container">
+    <div class="impact-header">
+      <h2>Where we are, <span class="clay">honestly.</span></h2>
+      <p class="impact-lead">We started in 2024. Here are the four numbers that matter most — the good, the still-needed, and the proof we're real.</p>
+    </div>
+    <div class="impact-grid">
+      <div class="stat-cell">
+        <div class="stat-num">$9K</div>
+        <div class="stat-label">Raised so far<small>Indiegogo + family contributions</small></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">$80K</div>
+        <div class="stat-label">Still needed<small>To finish the build and open</small></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">2 km</div>
+        <div class="stat-label">From U. of Kinshasa<small>Walking distance for students</small></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Of donations to the build<small>Family covers all operations</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="build" id="progress">
+  <div class="container">
+    <div class="build-header">
+      <div class="section-eyebrow" style="color: var(--clay); border-color: var(--clay);">Build progress</div>
+      <h2>Where the project <span class="clay">actually is.</span></h2>
+      <p class="build-lead">We're not where we hoped to be by now — and we'd rather tell you that plainly than dress it up. Construction is paused. Here's the full picture.</p>
+    </div>
+
+    <div class="phase-grid">
+      <div class="phase done">
+        <div class="phase-num">01</div>
+        <div class="phase-title">Demolition</div>
+        <div class="phase-status-tag">✓ Complete</div>
+        <p>Childhood home carefully dismantled, retaining the foundation footprint.</p>
+      </div>
+      <div class="phase active">
+        <div class="phase-num">02</div>
+        <div class="phase-title">Foundation</div>
+        <div class="phase-status-tag">→ Paused</div>
+        <p>Structural foundation begun with $9K from Indiegogo + family. Saving for the next push.</p>
+      </div>
+      <div class="phase pending">
+        <div class="phase-num">03</div>
+        <div class="phase-title">Walls & Roof</div>
+        <div class="phase-status-tag">~$35K</div>
+        <p>Brick walls, roof, doors, and windows. Begins when phase 2 wraps.</p>
+      </div>
+      <div class="phase pending">
+        <div class="phase-num">04</div>
+        <div class="phase-title">Interior & Books</div>
+        <div class="phase-status-tag">~$30K</div>
+        <p>Furniture, shelving, electrical, plumbing, and the first wave of books.</p>
+      </div>
+      <div class="phase pending">
+        <div class="phase-num">05</div>
+        <div class="phase-title">Doors Open</div>
+        <div class="phase-status-tag">Target 2027</div>
+        <p>Programs begin. Telecom partner activates internet & tablets. Doors open.</p>
+      </div>
+    </div>
+
+    <div class="honest-note">
+      <strong>Why the pause?</strong>
+      We launched <a href="https://www.indiegogo.com/en/projects/patrickngoyi/empower-kinshasa-build-a-community-library" target="_blank" rel="noopener">an Indiegogo campaign</a> that raised $9K from generous backers. Along the way we learned something most small charities eventually learn the hard way: foundations and major donors prefer to fund <em>programs, not bricks</em>. So the family is quietly self-funding the build. It is slower. It is also more certain.
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="projects-header">
+      <h2>Four projects.<br>One <span class="clay">very loud</span> idea.</h2>
+      <a href="#" style="font-size: 14px; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 4px;">See the roadmap →</a>
+    </div>
+    <div class="project-grid">
+      <div class="project">
+        <div class="project-num">01 · Flagship</div>
+        <div class="project-title">Lemba Community Library</div>
+        <div class="project-desc">A full neighbourhood library in a renovated family home. Open shelves, a quiet study room, a children's corner, Wi-Fi for older students.</div>
+        <div class="project-status"><span class="dot"></span>Phase 2 of 5 · Paused</div>
+      </div>
+      <div class="project">
+        <div class="project-num">02 · Outreach</div>
+        <div class="project-title">Mobile Library</div>
+        <div class="project-desc">Books delivered to schools and neighbourhoods that cannot easily come to us. Begins after the flagship opens.</div>
+        <div class="project-status"><span class="dot"></span>Roadmap</div>
+      </div>
+      <div class="project">
+        <div class="project-num">03 · Digital</div>
+        <div class="project-title">Digital Learning Centre</div>
+        <div class="project-desc">Computers, supervised internet, and digital literacy for older students. Telecom partner pre-committed to internet and tablets.</div>
+        <div class="project-status"><span class="dot"></span>Partner secured</div>
+      </div>
+      <div class="project">
+        <div class="project-num">04 · Programs</div>
+        <div class="project-title">Literacy Circles</div>
+        <div class="project-desc">After-school reading circles, homework help, and teacher partnerships once the doors open.</div>
+        <div class="project-status"><span class="dot"></span>Roadmap</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="partners">
+  <div class="container">
+    <div class="partners-header">
+      <div class="section-eyebrow" style="color: var(--clay); border-color: var(--clay);">In our corner</div>
+      <h2>Backed by people who <span class="clay">know the work.</span></h2>
+    </div>
+
+    <div class="partner-grid">
+      <div class="partner-card big">
+        <div class="partner-tag">Project Ambassador</div>
+        <h3>DJ (Didier) Mbenga</h3>
+        <p class="partner-role">NBA Champion · Congolese-born</p>
+        <p>An NBA Champion lending his voice and platform to amplify the library's mission. A reminder that opportunity multiplies when home gives back.</p>
+      </div>
+      <div class="partner-card">
+        <div class="partner-tag">Pre-committed</div>
+        <h3>Local telecom partner</h3>
+        <p class="partner-role">Internet + tablets at opening</p>
+        <p>A Kinshasa telecom company has pledged high-speed internet and a starter set of tablets — activated the day the doors open.</p>
+      </div>
+      <div class="partner-card">
+        <div class="partner-tag">Pre-committed</div>
+        <h3>Bibliothèques Sans Frontières</h3>
+        <p class="partner-role">Digital library platform</p>
+        <p>The international NGO Libraries Without Borders is prepared to power our digital library platform once construction is complete.</p>
+      </div>
+      <div class="partner-card">
+        <div class="partner-tag">100+ Backers</div>
+        <h3>Indiegogo Community</h3>
+        <p class="partner-role">$9K raised in 2025</p>
+        <p>The campaign closed. The gratitude has not. Every backer's name will go on the Wall of Thanks inside the library, the day we open.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section" id="voices">
+  <div class="container">
+    <div class="quote-grid">
+      <div>
+        <div class="quote-mark-big">"</div>
+        <p class="quote-text">In this community, resources for students are often limited. The library will create a <em>safe place to gather, learn, and dream.</em></p>
+        <div class="quote-author">
+          <div class="avatar"></div>
+          <div>
+            <div class="name">Mr. Mwamba</div>
+            <div class="role">Parent and community member · Lemba</div>
+          </div>
+        </div>
+      </div>
+      <div class="quote-photo"></div>
+    </div>
+  </div>
+</section>
+
+<section class="join" id="join">
+  <div class="container">
+    <div class="join-eyebrow">Get involved</div>
+    <h2>Help us <span class="underline">lay</span> the<br><span class="clay">foundation.</span></h2>
+    <p class="join-lead">Donations go straight to construction. Tax receipts are issued instantly through CanadaHelps. Every contribution — large or small — moves us closer to opening day.</p>
+    <div class="donate-tiers">
+      <div class="tier">
+        <div class="amount">$10+</div>
+        <div class="impact-text">A thank-you and progress updates from the build site.</div>
+      </div>
+      <div class="tier">
+        <div class="amount">$25+</div>
+        <div class="impact-text">Your name on the Wall of Thanks inside the library.</div>
+      </div>
+      <div class="tier featured">
+        <div class="amount">$100+</div>
+        <div class="impact-text">A handwritten letter from a student who'll learn here.</div>
+      </div>
+      <div class="tier">
+        <div class="amount">$1,000+</div>
+        <div class="impact-text">Virtual opening invitation and a video message from the founders.</div>
+      </div>
+    </div>
+    <a href="https://www.canadahelps.org/en/charities/fondation-lola/" target="_blank" rel="noopener" class="btn-big">
+      Donate via CanadaHelps
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <p style="font-size: 13px; color: var(--ink); margin-top: 18px; opacity: 0.7;">Tax receipts issued instantly · Charity #758770812RR0001</p>
+  </div>
+</section>
+
+<section class="pledge" id="pledge">
+  <div class="container">
+    <div class="pledge-card">
+      <div>
+        <div class="pledge-eyebrow">Plan to give later?</div>
+        <h2>Save your <span class="yellow">spot</span> for opening day.</h2>
+        <p>Most foundations and major donors have told us they'd rather help once construction is done. We hear you. Drop your email and we'll let you know the moment the library opens — no pressure, no follow-ups, just one note when the doors swing open.</p>
+      </div>
+      <form class="pledge-form" onsubmit="event.preventDefault();">
+        <input type="email" placeholder="your@email.com" required>
+        <select>
+          <option>I'll consider giving once you open</option>
+          <option>I'd like to give monthly post-opening</option>
+          <option>I'd like to volunteer</option>
+          <option>I'd like to partner / donate goods or books</option>
+          <option>I just want to follow along</option>
+        </select>
+        <button type="submit">Save my spot →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Fondation LoLa</div>
+        <p class="footer-tagline">A Canadian-Congolese charity bringing libraries and literacy programs to the children of Kinshasa.</p>
+        <div class="charity-no">
+          <strong>Registered Canadian Charity</strong>
+          BN 758770812RR0001
+        </div>
+      </div>
+      <div>
+        <h4>Mission</h4>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Our values</a></li>
+          <li><a href="#">Founders</a></li>
+          <li><a href="#">Annual report</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get involved</h4>
+        <ul>
+          <li><a href="#">Donate</a></li>
+          <li><a href="#">Monthly giving</a></li>
+          <li><a href="#">Volunteer</a></li>
+          <li><a href="#">Partner with us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+15872098121">+1-587-209-8121</a></li>
+          <li><a href="mailto:info@lolafondation.com">info@lolafondation.com</a></li>
+          <li>Spruce Grove · Canada</li>
+          <li>Lemba · Kinshasa · DRC</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Fondation LoLa · All rights reserved</div>
+      <div>Privacy · Terms · Accessibility</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

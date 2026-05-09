@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Involved · Fondation LoLa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* WAYS TO HELP */
+  .ways {
+    padding: 100px 0;
+    background: var(--cream);
+    border-bottom: 2px solid var(--ink);
+  }
+  .ways-header { margin-bottom: 56px; max-width: 800px; }
+  .ways h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .ways h2 .clay { color: var(--clay); }
+  .ways-lead { font-size: 18px; color: var(--ink); max-width: 640px; }
+  .ways-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .way {
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: all 0.15s;
+    display: flex;
+    flex-direction: column;
+  }
+  .way:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+  .way:nth-child(1) { background: var(--clay); color: var(--cream); }
+  .way:nth-child(3) { background: var(--leaf); color: var(--cream); }
+  .way:nth-child(5) { background: var(--sun); }
+  .way-num {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0.8;
+  }
+  .way h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+  .way p {
+    font-size: 14px;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 24px;
+    opacity: 0.95;
+  }
+  .way-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+    padding-bottom: 4px;
+    align-self: flex-start;
+    transition: gap 0.2s;
+  }
+  .way-link:hover { gap: 12px; }
+
+  /* DONATE TIERS */
+  .donate-section {
+    padding: 110px 0;
+    background: var(--cream-deep);
+    border-bottom: 2px solid var(--ink);
+  }
+  .donate-header { margin-bottom: 48px; max-width: 800px; }
+  .donate-section h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .donate-section h2 .clay { color: var(--clay); }
+  .donate-lead { font-size: 18px; color: var(--ink); max-width: 640px; }
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .tier {
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: all 0.15s;
+    display: flex;
+    flex-direction: column;
+  }
+  .tier:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+  .tier.featured { background: var(--sun); }
+  .tier-amount {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .tier-perk-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 14px;
+  }
+  .tier.featured .tier-perk-label { color: var(--ink); opacity: 0.65; }
+  .tier h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .tier p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink);
+    opacity: 0.85;
+    flex: 1;
+  }
+  .donate-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .receipt-note {
+    font-size: 13px;
+    color: var(--ink);
+    opacity: 0.7;
+  }
+  .receipt-note strong { color: var(--clay); font-weight: 700; }
+
+  /* PLEDGE */
+  .pledge {
+    background: var(--indigo);
+    color: var(--cream);
+    padding: 110px 0;
+    border-bottom: 2px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .pledge::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: var(--sun);
+    border-radius: 50%;
+    opacity: 0.08;
+  }
+  .pledge::after {
+    content: '';
+    position: absolute;
+    bottom: -120px;
+    right: -120px;
+    width: 380px;
+    height: 380px;
+    background: var(--clay);
+    border-radius: 50%;
+    opacity: 0.12;
+  }
+  .pledge-card {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .pledge h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(36px, 4.5vw, 64px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .pledge h2 .yellow {
+    background: linear-gradient(180deg, transparent 60%, var(--sun) 60%, var(--sun) 90%, transparent 90%);
+    color: var(--cream);
+    padding: 0 6px;
+  }
+  .pledge p { color: rgba(245, 240, 227, 0.8); font-size: 16px; line-height: 1.6; margin-bottom: 12px; }
+  .pledge-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .pledge-form input,
+  .pledge-form select {
+    background: rgba(245, 240, 227, 0.08);
+    border: 1.5px solid rgba(245, 240, 227, 0.25);
+    padding: 16px 20px;
+    color: var(--cream);
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    border-radius: 12px;
+    transition: border-color 0.2s;
+  }
+  .pledge-form input:focus, .pledge-form select:focus { border-color: var(--sun); }
+  .pledge-form input::placeholder { color: rgba(245, 240, 227, 0.45); }
+  .pledge-form select option { background: var(--indigo); color: var(--cream); }
+  .pledge-form button {
+    background: var(--sun);
+    color: var(--ink);
+    border: 2px solid var(--sun);
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .pledge-form button:hover { background: var(--cream); border-color: var(--cream); }
+
+  /* PARTNER FORM SECTION */
+  .partner-section {
+    padding: 110px 0;
+    background: var(--cream);
+    border-bottom: 2px solid var(--ink);
+  }
+  .partner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .partner-grid h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(36px, 4.5vw, 56px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .partner-grid h2 .clay { color: var(--clay); }
+  .partner-grid p { font-size: 17px; line-height: 1.65; color: var(--ink); margin-bottom: 16px; }
+  .partner-list-inline {
+    list-style: none;
+    margin-top: 28px;
+  }
+  .partner-list-inline li {
+    padding: 16px 20px;
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    background: var(--cream-deep);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .partner-list-inline li::before {
+    content: '✓';
+    width: 28px; height: 28px;
+    background: var(--leaf);
+    color: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .partner-form {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 36px;
+    border-radius: 20px;
+    border: 2px solid var(--ink);
+    box-shadow: 8px 8px 0 var(--clay);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .partner-form h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: 6px;
+  }
+  .partner-form p {
+    color: rgba(245, 240, 227, 0.7);
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  .partner-form input, .partner-form select, .partner-form textarea {
+    background: rgba(245, 240, 227, 0.08);
+    border: 1.5px solid rgba(245, 240, 227, 0.25);
+    padding: 14px 18px;
+    color: var(--cream);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    border-radius: 10px;
+    transition: border-color 0.2s;
+    font-family: inherit;
+  }
+  .partner-form textarea { resize: vertical; min-height: 90px; }
+  .partner-form input:focus, .partner-form select:focus, .partner-form textarea:focus { border-color: var(--sun); }
+  .partner-form input::placeholder, .partner-form textarea::placeholder { color: rgba(245, 240, 227, 0.45); }
+  .partner-form select option { background: var(--ink); color: var(--cream); }
+  .partner-form button {
+    background: var(--sun);
+    color: var(--ink);
+    border: 2px solid var(--sun);
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .partner-form button:hover { background: var(--cream); border-color: var(--cream); }
+
+  /* FAQ */
+  .faq {
+    padding: 110px 0;
+    background: var(--cream-deep);
+    border-bottom: 2px solid var(--ink);
+  }
+  .faq-header { margin-bottom: 48px; max-width: 800px; }
+  .faq h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .faq h2 .clay { color: var(--clay); }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 900px;
+  }
+  .faq-item {
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 22px 26px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--cream);
+    color: var(--ink);
+    list-style: none;
+    user-select: none;
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q::after {
+    content: '+';
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--clay);
+    transition: transform 0.2s;
+    line-height: 1;
+  }
+  details[open] .faq-q::after { content: '−'; }
+  .faq-a {
+    padding: 0 26px 22px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  @media (max-width: 1000px) {
+    .ways-grid { grid-template-columns: 1fr; }
+    .tier-grid { grid-template-columns: repeat(2, 1fr); }
+    .pledge-card, .partner-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Building Phase 2 of 5 in Lemba, Kinshasa</span>
+    <span>$80K to open the doors · Target 2027</span>
+    <span>Tax receipts issued instantly via CanadaHelps</span>
+    <span>Backed by NBA Champion DJ Mbenga</span>
+    <span>Building Phase 2 of 5 in Lemba, Kinshasa</span>
+    <span>$80K to open the doors · Target 2027</span>
+    <span>Tax receipts issued instantly via CanadaHelps</span>
+    <span>Backed by NBA Champion DJ Mbenga</span>
+  </div>
+</div>
+
+<nav class="site-nav">
+  <div class="container nav-row">
+    <a href="index.html" class="logo">
+      <div class="logo-mark"><img src="images/lola-icon.svg" alt="Fondation LoLa logo"></div>
+      Fondation LoLa
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="updates.html">Progress</a></li>
+      <li><a href="get-involved.html" class="active">Get Involved</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-toggle"><span class="active">EN</span> · <a href="fr/agir.html">FR</a></div>
+      <a href="https://www.canadahelps.org/en/charities/fondation-lola/" target="_blank" rel="noopener" class="btn-donate">
+        Donate
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span>Get Involved</span>
+    </div>
+    <div class="page-hero-grid">
+      <div>
+        <div class="page-hero-eyebrow"><span class="dot"></span>Five ways in</div>
+        <h1>Pick a way <span class="underline">in.</span><br>None of them are <span class="accent">small.</span></h1>
+        <p class="page-hero-lead">A donation, a pledge, an hour, a partnership, a share — every contribution moves us closer to the day the doors open.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pattern-strip"></div>
+
+<section class="ways">
+  <div class="container">
+    <div class="ways-header">
+      <div class="section-eyebrow">The five paths</div>
+      <h2>Whatever you have to <span class="clay">give.</span></h2>
+      <p class="ways-lead">Money helps. Time helps. Sharing helps. So does a corporate match, a class fundraiser, or a box of books. Below is the full menu.</p>
+    </div>
+    <div class="ways-grid">
+      <div class="way">
+        <div class="way-num">01 · Money</div>
+        <h3>Donate.</h3>
+        <p>Every dollar goes to construction and books. Tax receipts issued instantly via CanadaHelps. One-time or monthly.</p>
+        <a href="#donate" class="way-link">See donation tiers →</a>
+      </div>
+      <div class="way">
+        <div class="way-num">02 · Patience</div>
+        <h3>Pledge for opening day.</h3>
+        <p>Most foundations prefer to fund post-construction. Drop your email and we'll let you know the day the library opens.</p>
+        <a href="#pledge" class="way-link">Save your spot →</a>
+      </div>
+      <div class="way">
+        <div class="way-num">03 · Time</div>
+        <h3>Volunteer.</h3>
+        <p>Translation, design, social, organizing class fundraisers, advising on grant writing. Remote or in-person.</p>
+        <a href="#volunteer" class="way-link">Volunteer with us →</a>
+      </div>
+      <div class="way">
+        <div class="way-num">04 · Reach</div>
+        <h3>Partner.</h3>
+        <p>Corporate matching, in-kind donations, school class fundraisers, faith communities. We meet you where you are.</p>
+        <a href="#partner" class="way-link">Partner inquiry →</a>
+      </div>
+      <div class="way">
+        <div class="way-num">05 · Voice</div>
+        <h3>Share.</h3>
+        <p>The simplest, often the most powerful. Tell one person about Fondation LoLa today. Forward our YouTube video.</p>
+        <a href="#share" class="way-link">Spread the word →</a>
+      </div>
+      <div class="way">
+        <div class="way-num">06 · Books</div>
+        <h3>Donate books.</h3>
+        <p>French, Lingala, Kikongo, English. Children's, young adult, reference. Get in touch about shipping logistics.</p>
+        <a href="mailto:info@lolafondation.com?subject=Book%20donation" class="way-link">Email us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="donate-section" id="donate">
+  <div class="container">
+    <div class="donate-header">
+      <div class="section-eyebrow">Donation tiers</div>
+      <h2>What your gift <span class="clay">unlocks.</span></h2>
+      <p class="donate-lead">Tiers carried over from our Indiegogo campaign. We honour every commitment we made there. CanadaHelps issues your tax receipt the moment you give.</p>
+    </div>
+    <div class="tier-grid">
+      <div class="tier">
+        <div class="tier-amount">$10+</div>
+        <div class="tier-perk-label">Thank-you</div>
+        <h3>You're on the list.</h3>
+        <p>A personalized thank-you and quarterly progress updates from the build site.</p>
+      </div>
+      <div class="tier">
+        <div class="tier-amount">$25+</div>
+        <div class="tier-perk-label">Wall of Thanks</div>
+        <h3>Your name on the wall.</h3>
+        <p>Your name engraved on the Wall of Thanks displayed inside the library when we open.</p>
+      </div>
+      <div class="tier featured">
+        <div class="tier-amount">$100+</div>
+        <div class="tier-perk-label">Most popular</div>
+        <h3>A handwritten letter.</h3>
+        <p>A handwritten thank-you from one of the students who will learn at the library.</p>
+      </div>
+      <div class="tier">
+        <div class="tier-amount">$1,000+</div>
+        <div class="tier-perk-label">Founders' tier</div>
+        <h3>Opening invitation.</h3>
+        <p>An invitation to our virtual opening ceremony plus a personal video message from the founders.</p>
+      </div>
+    </div>
+    <div class="donate-actions">
+      <a href="https://www.canadahelps.org/en/charities/fondation-lola/" target="_blank" rel="noopener" class="btn-big">
+        Donate via CanadaHelps
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <span class="receipt-note"><strong>Tax receipts issued instantly</strong> · Charity #758770812RR0001</span>
+    </div>
+  </div>
+</section>
+
+<section class="pledge" id="pledge">
+  <div class="container">
+    <div class="pledge-card">
+      <div>
+        <div class="section-eyebrow dark">Plan to give later?</div>
+        <h2>Save your <span class="yellow">spot</span><br>for opening day.</h2>
+        <p>Most foundations and major donors have told us they'd rather help once the library is open. We hear you. Drop your email and we'll let you know the moment the doors swing open.</p>
+        <p>No pressure. No follow-up campaigns. Just one note when the day arrives.</p>
+      </div>
+      <form class="pledge-form" onsubmit="event.preventDefault();">
+        <input type="text" placeholder="Your name">
+        <input type="email" placeholder="your@email.com" required>
+        <select>
+          <option>I'll consider giving once you open</option>
+          <option>I'd like to give monthly post-opening</option>
+          <option>I'd like to volunteer</option>
+          <option>I'd like to partner / donate goods</option>
+          <option>I just want to follow along</option>
+        </select>
+        <button type="submit">Save my spot →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="partner-section" id="volunteer">
+  <div class="container">
+    <div class="partner-grid">
+      <div>
+        <div class="section-eyebrow">Volunteer & partner</div>
+        <h2>Time, expertise, <span class="clay">or your network.</span></h2>
+        <p>Some of our most useful contributions have not been money. A grade-3 class fundraiser. A telecom partner pledging tablets. An NBA champion lending his platform. We are open to almost any honest help.</p>
+        <p>Specifically right now we are looking for:</p>
+        <ul class="partner-list-inline">
+          <li>Grant-writing volunteers (Canadian charity sector)</li>
+          <li>Bilingual EN/FR copy editing</li>
+          <li>Photography and videography in Kinshasa</li>
+          <li>Corporate matching champions inside your employer</li>
+          <li>School and faith-community class fundraisers</li>
+          <li>Book donations (French, Lingala, Kikongo, English)</li>
+        </ul>
+        <div style="margin-top: 28px; padding: 22px 26px; background: var(--cream-deep); border: 2px solid var(--ink); border-radius: 14px; box-shadow: 4px 4px 0 var(--clay);">
+          <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px;">From a distance</div>
+          <p style="font-size: 14px; line-height: 1.6; color: var(--ink); margin: 0;">Many of you have told us you'd happily pitch in if the build were closer to home. The construction itself runs through local Kinshasa contractors — but the contributions that genuinely move us forward from abroad are the six above. Distance shapes <em>how</em> you can help, not whether you can.</p>
+        </div>
+      </div>
+      <form class="partner-form" id="partner" onsubmit="event.preventDefault();">
+        <h3>Get in touch.</h3>
+        <p>Tell us a little about you and how you'd like to help. We respond personally within 5 business days.</p>
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="your@email.com" required>
+        <input type="text" placeholder="Organization (optional)">
+        <select required>
+          <option value="">How would you like to help?</option>
+          <option>Volunteer my time / skills</option>
+          <option>Corporate partnership / matching</option>
+          <option>School or class fundraiser</option>
+          <option>In-kind donation (books, equipment)</option>
+          <option>Media or speaking opportunity</option>
+          <option>Something else</option>
+        </select>
+        <textarea placeholder="A few words about what you have in mind..." rows="4"></textarea>
+        <button type="submit">Send message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <div class="faq-header">
+      <div class="section-eyebrow">Common questions</div>
+      <h2>The questions donors <span class="clay">actually ask.</span></h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q">Will I receive a tax receipt for my donation?</summary>
+        <div class="faq-a">Yes — CanadaHelps issues a CRA-compliant tax receipt automatically and emails it to you within minutes. Fondation LoLa is a registered Canadian charity (BN 758770812RR0001).</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What percentage of my donation actually goes to the library?</summary>
+        <div class="faq-a">100% of donations go to construction and books. The founding family covers all administrative and operating costs personally. CanadaHelps charges a small platform fee (around 3.75%) for processing and tax receipt issuance — that's the only deduction before funds reach us.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Why is construction paused?</summary>
+        <div class="faq-a">We launched an Indiegogo campaign in late 2024 with a goal of $83,500 and raised $8,847. After the campaign closed, we learned that most foundations and major donors prefer to fund programs rather than construction. Rather than continue without a clear path forward, the family decided to pause and self-fund the build at our own pace. Slower, but more certain.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">When will the library open?</summary>
+        <div class="faq-a">Our current target is 2027. The original target of December 2025 was set during the Indiegogo campaign and has slipped due to the funding pause. We will not commit to a date until we are confident we can hold it.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can I set up a recurring monthly donation?</summary>
+        <div class="faq-a">Yes — CanadaHelps supports monthly giving. On the donation page, choose "Monthly" instead of "One-time." Monthly donors are our most stable funding source and we are deeply grateful for them.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can I donate books or equipment?</summary>
+        <div class="faq-a">Yes. We accept books in French, Lingala, Kikongo, and English (children's, young adult, reference, study). For equipment donations or international shipments, please email <a href="mailto:info@lolafondation.com">info@lolafondation.com</a> first so we can confirm logistics.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is my donation refundable?</summary>
+        <div class="faq-a">Donations are generally non-refundable as tax receipts are issued at the time of donation. If you donated in error, contact us within 7 days at <a href="mailto:info@lolafondation.com">info@lolafondation.com</a> and we'll work with you and CanadaHelps to resolve it.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How can I follow the project's progress?</summary>
+        <div class="faq-a">Subscribe to our quarterly updates from the <a href="updates.html#subscribe">Progress page</a>. We post photos from the build, donor receipts, and what worked vs. what didn't. We also publish updates on Facebook, Twitter/X, YouTube, and LinkedIn.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-block" id="share">
+  <div class="container">
+    <div class="section-eyebrow">The simplest help</div>
+    <h2>Tell one <span class="underline">person</span><br>about us <span class="clay">today.</span></h2>
+    <p>The whole project began with a family conversation. Yours might be the next one.</p>
+    <div class="cta-buttons">
+      <a href="https://twitter.com/intent/tweet?text=Fondation%20LoLa%20is%20building%20the%20first%20community%20library%20in%20Lemba%2C%20Kinshasa.%20Help%20them%20open%20the%20doors%3A&url=https://lolafondation.com" target="_blank" rel="noopener" class="btn-big">
+        Share on Twitter / X
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://www.youtube.com/watch?v=bRh3B3Lm8cM" target="_blank" rel="noopener" class="btn-outline">Share the video</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Fondation LoLa</div>
+        <p class="footer-tagline">A Canadian-Congolese charity bringing libraries and literacy programs to the children of Kinshasa.</p>
+        <div class="charity-no">
+          <strong>Registered Canadian Charity</strong>
+          BN 758770812RR0001
+        </div>
+      </div>
+      <div>
+        <h4>Mission</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html#values">Our values</a></li>
+          <li><a href="about.html#founders">Founders</a></li>
+          <li><a href="updates.html">Annual report</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get involved</h4>
+        <ul>
+          <li><a href="https://www.canadahelps.org/en/charities/fondation-lola/" target="_blank" rel="noopener">Donate</a></li>
+          <li><a href="get-involved.html#monthly">Monthly giving</a></li>
+          <li><a href="get-involved.html#volunteer">Volunteer</a></li>
+          <li><a href="get-involved.html#partner">Partner with us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+15872098121">+1-587-209-8121</a></li>
+          <li><a href="mailto:info@lolafondation.com">info@lolafondation.com</a></li>
+          <li>Spruce Grove · Canada</li>
+          <li>Lemba · Kinshasa · DRC</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Fondation LoLa · All rights reserved</div>
+      <div>Privacy · Terms · Accessibility</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
